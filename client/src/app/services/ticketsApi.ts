@@ -18,6 +18,13 @@ export const ticketsApi = createApi({
       query: (ticketId) => `tickets/${ticketId}`,
       providesTags: (result, error, id) => [{ type: 'Tickets', id }],
     }),
+    assignTicket: build.mutation<void, Partial<{ticketId: string, userId: string}>>({
+      query: ({ticketId, userId}) => ({
+        url: `tickets/${ticketId}/assign/${userId}`,
+        method: 'PUT',
+      }),
+      invalidatesTags: ['Tickets'],
+    }),
   }),
 })
 
@@ -26,4 +33,5 @@ export const ticketsApi = createApi({
 export const {
   useGetTicketsQuery,
   useGetTicketByIdQuery,
+  useAssignTicketMutation,
 } = ticketsApi;

@@ -1,10 +1,10 @@
-import {useCallback, useState} from 'react';
-import { useParams } from "react-router-dom";
-import { Ticket } from '@acme/shared-models';
+import {useCallback, useState, useEffect} from 'react';
+import {useParams} from "react-router-dom";
+import {Ticket} from '@acme/shared-models';
 
 import styles from './ticket-details.module.css';
 import Select from '../select/select';
-import {useGetTicketByIdQuery  } from '../services/ticketsApi';
+import {useGetTicketByIdQuery, useAssignTicketMutation } from '../services/ticketsApi';
 
 import type { Option, SelectProps } from '../select/select';
 
@@ -14,9 +14,19 @@ export interface TicketDetailsProps {
 
 export function TicketDetails(props: TicketDetailsProps) {
   const { id: ticketId } = useParams<{id: string}>();
-  const {data: ticket, isLoading} = useGetTicketByIdQuery(ticketId!);
   const [selectedUser, setOption] = useState("");
   const onItemChanged = useCallback((id:string) => setOption(id), [setOption]);
+
+  const {data: ticket, isLoading} = useGetTicketByIdQuery(ticketId!);
+  const [assignTicket, {isLoading: isAssigning}] = useAssignTicketMutation();
+
+  useEffect(() => {
+    if (selectedUser) {
+      assignTicket(
+        {userId: selectedUser, ticketId: ticketId!},
+      );
+    }
+  }, [selectedUser]);
 
   // handle loading state
   if (isLoading) return <div>Loading...</div>
@@ -47,6 +57,7 @@ export function TicketDetails(props: TicketDetailsProps) {
         <div>Assigned To: {assigneeId}</div>
         <div>Status: {status}</div>
       </div>
+      {isAssigning && <div>Assigning...</div>}
     </div>
   );
 }
