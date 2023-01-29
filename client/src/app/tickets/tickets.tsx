@@ -4,6 +4,7 @@ import { Ticket } from '@acme/shared-models';
 import styles from './tickets.module.css';
 
 import TicketsList from '../tickets-list/tickets-list';
+import AddTicket from '../add-ticket/add-ticket';
 import Select from '../select/select';
 import { useGetTicketsQuery } from '../services/ticketsApi';
 import {matchesStatus} from '../utils';
@@ -38,7 +39,10 @@ export function Tickets(props: TicketsProps) {
 
   return (
     <div className={styles['tickets']}>
-      <h2>Tickets</h2>
+      <div className='flex between'>
+        <h2>Tickets</h2>
+        <AddTicket />
+      </div>
       <Select {...selectProps} />
       <TicketsList tickets={filteredTickets} />
     </div>

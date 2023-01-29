@@ -1,7 +1,10 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.add-ticket {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.add-ticket-input {
+  padding: 8px;
+  width: 250px;
+}

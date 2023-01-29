@@ -13,3 +13,11 @@ ul, li {
   margin: 0;
   padding: 0;
 }
+
+.flex {
+  display: flex;
+}
+
+.between {
+  justify-content: space-between;
+}
