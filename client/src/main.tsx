@@ -8,6 +8,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 
 import { ticketsApi } from './app/services/ticketsApi';
+import { usersApi } from './app/services/usersApi';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,10 +16,15 @@ const root = ReactDOM.createRoot(
 
 const store = configureStore({
   reducer: {
-    [ticketsApi.reducerPath]: ticketsApi.reducer
+    [ticketsApi.reducerPath]: ticketsApi.reducer,
+    [usersApi.reducerPath]: usersApi.reducer,
   },
   // Additional middleware can be passed to this array
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(ticketsApi.middleware),
+  middleware: (getDefaultMiddleware) => {
+    return getDefaultMiddleware()
+            .concat(ticketsApi.middleware)
+            .concat(usersApi.middleware);
+  },
   devTools: process.env['NODE_ENV'] !== 'production',
   // Optional Redux store enhancers
   enhancers: [],
