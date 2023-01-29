@@ -1,7 +1,5 @@
-/*
- * Replace this with your own classes
- *
- * e.g.
- * .container {
- * }
-*/
+.select {
+  margin-left: 5px;
+  padding: 5px;
+  width: 150px;
+}
