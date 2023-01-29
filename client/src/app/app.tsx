@@ -3,7 +3,9 @@ import { Routes, Route } from 'react-router-dom';
 import { Ticket, User } from '@acme/shared-models';
 
 import styles from './app.module.css';
+import Layout from './layout/layout';
 import Tickets from './tickets/tickets';
+import TicketDetails from './ticket-details/ticket-details';
 
 const App = () => {
   const [tickets, setTickets] = useState([] as Ticket[]);
@@ -28,11 +30,9 @@ const App = () => {
 
   return (
     <div className={styles['app']}>
-      <h1>Ticketing App</h1>
       <Routes>
-        <Route path="/" element={<Tickets tickets={tickets} />} />
-        {/* Hint: Try `npx nx g component TicketDetails --project=client --no-export` to generate this component  */}
-        <Route path="/:id" element={<h2>Details Not Implemented</h2>} />
+        <Route path="/" element={<Layout><Tickets tickets={tickets} /></Layout>} />
+        <Route path="/:id" element={<Layout><TicketDetails /></Layout>} />
       </Routes>
     </div>
   );

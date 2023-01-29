@@ -1,0 +1,60 @@
+.tickets {
+  overflow: hidden;
+  padding: 20px;
+  position: relative;
+}
+
+.ticket__list {
+  border: 1px solid black;
+  padding: 0;
+}
+
+.ticket {
+  border-bottom: 1px solid rgb(92, 108, 121);
+}
+
+.ticket__header, .ticket__row {
+  display: flex;
+  flex-wrap: nowrap;
+  font-size: 14px;
+}
+
+.ticket__header .grid-item {
+  font-weight: 700;
+}
+
+.ticket__row .grid-item {
+  cursor: pointer;
+}
+
+.add-ticket {
+  color: gray;
+}
+
+.grid-item {
+  flex: 1;
+  padding: 20px;
+}
+
+.grid-item:nth-child(2) {
+  flex: 3;
+}
+
+.ticket__row:hover {
+  background: #e1ecee;
+}
+
+.status {
+  align-items: center;
+  background: #50787f;
+  border-radius: 5px;
+  color: white;
+  display: flex;
+  height: 30px;
+  justify-content: center;
+  width: 100px;
+}
+
+.status.completed {
+  background: #4a9d5e;
+}

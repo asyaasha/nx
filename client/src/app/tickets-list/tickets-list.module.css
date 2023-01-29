@@ -1,0 +1,14 @@
+.container {
+  border: 1px solid black;
+  padding: 0;
+}
+
+.ticket {
+  border-bottom: 1px solid #5c6c79;
+  cursor: pointer;
+  padding: 15px;
+}
+
+.ticket:hover {
+  background-color: #d5e3ef;
+}
