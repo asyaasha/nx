@@ -11,6 +11,7 @@ export interface TicketsListProps {
 export function TicketsList({tickets}: TicketsListProps) {
   const navigate = useNavigate();
 
+  // open ticket details page
   function handleTicketClick(ticketId: number) {
     navigate(`/${ticketId}`)
   }
