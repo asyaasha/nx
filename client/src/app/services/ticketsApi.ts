@@ -25,6 +25,14 @@ export const ticketsApi = createApi({
       }),
       invalidatesTags: ['Tickets'],
     }),
+    addTicket: build.mutation<Ticket, Partial<{description: string}>>({
+      query: (body) => ({
+        url: `tickets`,
+        method: 'POST',
+        body,
+      }),
+      invalidatesTags: ['Tickets'],
+    }),
   }),
 })
 
@@ -34,4 +42,5 @@ export const {
   useGetTicketsQuery,
   useGetTicketByIdQuery,
   useAssignTicketMutation,
+  useAddTicketMutation,
 } = ticketsApi;

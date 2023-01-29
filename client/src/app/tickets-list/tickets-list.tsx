@@ -25,7 +25,11 @@ export function TicketsList({tickets}: TicketsListProps) {
               key={t.id}
               onClick={() => handleTicketClick(t.id)}
             >
-              Ticket: {t.id}, {t.description}, {t.assigneeId}, {t.completed ? 'Completed' : 'Open'}
+              Ticket:
+                {t.id},
+                {t.description},
+                {t.assigneeId || 'not assigned'},
+                {t.completed ? 'Completed' : 'Open'}
             </li>
           ))}
         </ul>

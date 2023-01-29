@@ -12,9 +12,7 @@ import {STATUS_FILTER_OPTIONS} from '../constants';
 
 import type { SelectProps } from '../select/select';
 
-export interface TicketsProps {}
-
-export function Tickets(props: TicketsProps) {
+export function Tickets() {
   const [selectedStatus, setOption] = useState("");
   const onItemChanged = useCallback((id:string) => setOption(id), [setOption]);
 
