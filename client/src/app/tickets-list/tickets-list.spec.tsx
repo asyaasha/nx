@@ -9,7 +9,7 @@ jest.mock('react-router-dom', () => ({
 
 describe('TicketsList', () => {
   it('should render successfully', () => {
-    const { baseElement } = render(<TicketsList tickets={[]} />);
+    const { baseElement } = render(<TicketsList users={[]} tickets={[]} />);
     expect(baseElement).toBeTruthy();
   });
 });

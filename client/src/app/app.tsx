@@ -12,7 +12,7 @@ const App = () => {
   return (
     <div className={styles['app']}>
       <Routes>
-        <Route path="/" element={<Layout><Tickets /></Layout>} />
+        <Route path="/" element={<Layout><Tickets users={users} /></Layout>} />
         <Route path="/:id" element={<Layout><TicketDetails users={users} /></Layout>} />
       </Routes>
     </div>

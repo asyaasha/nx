@@ -39,7 +39,7 @@ const storeRef = setupApiStore({...usersApi, ...ticketsApi}, { });
 
 const TicketsWithProvider = (
   <Provider store={storeRef.store}>
-    <Tickets />
+    <Tickets users={[]} />
   </Provider>
 );
 

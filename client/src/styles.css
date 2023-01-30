@@ -21,3 +21,23 @@ ul, li {
 .between {
   justify-content: space-between;
 }
+
+.error {
+  align-self: center;
+  color: #e76a8f;
+  font-style: italic;
+  font-size: 11px;
+  padding: 12px;
+}
+
+button {
+  padding: 6px 10px;
+  color: #ffffff;
+  background-color: #00687a;
+  border: none;
+  margin-left: 5px;
+  outline: none;
+}
+button:hover {
+  background-color: #465e62;
+}

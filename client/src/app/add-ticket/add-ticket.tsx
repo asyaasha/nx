@@ -20,14 +20,13 @@ function AddTicket () {
 
   return (
       <div className={styles['add-ticket']}>
-        <h2>New Ticket</h2>
+        <span className='flex'><h2>New Ticket</h2><span className="error">{errors['description'] && "Please enter description."}</span></span>
         <form className="flex" onSubmit={handleSubmit(handleAddTicket)}>
           <textarea
             placeholder="Enter description.."
             className={styles['add-ticket-input']}
             {...register('description', { required: true })}
           />
-          {errors['description'] && <p>Please enter description.</p>}
           <input type="submit" disabled={isLoading} />
         </form>
       </div>

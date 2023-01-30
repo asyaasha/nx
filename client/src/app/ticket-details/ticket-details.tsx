@@ -3,7 +3,12 @@ import {useParams} from "react-router-dom";
 
 import styles from './ticket-details.module.css';
 import Select from '../select/select';
-import {useGetTicketByIdQuery, useAssignTicketMutation } from '../services/ticketsApi';
+import {
+  useGetTicketByIdQuery,
+  useAssignTicketMutation,
+  useCompleteTicketMutation,
+  useOpenTicketMutation,
+} from '../services/ticketsApi';
 
 import type {User} from '@acme/shared-models';
 import type { Option, SelectProps } from '../select/select';
@@ -16,6 +21,10 @@ export interface TicketDetailsProps {
 export function TicketDetails({users = []}: TicketDetailsProps) {
   const { id: paramId } = useParams<{id: string}>();
   const [selectedUser, setOption] = useState("");
+
+  const [completeTicket] = useCompleteTicketMutation()
+  const [openTicket] = useOpenTicketMutation()
+
   const onItemChanged = useCallback((id:string) => setOption(id), [setOption]);
 
   // redefining id because param returns string | undefined type
@@ -51,7 +60,25 @@ export function TicketDetails({users = []}: TicketDetailsProps) {
   return (
     <div className={styles['container']}>
       <h2>Ticket Details</h2>
-      <Select {...selectProps} />
+      <div className='flex'>
+        <Select {...selectProps} />
+        {!ticket?.completed && (
+          <div>
+            <button onClick={() => completeTicket(ticketId)}>
+              Complete
+            </button>
+          </div>
+          )
+        }
+        {ticket?.completed && (
+          <div>
+            <button className={styles['reopen']} onClick={() => openTicket(ticketId)}>
+              Reopen
+            </button>
+          </div>
+          )
+        }
+      </div>
       <div className={styles['ticket-detail']} key={id}>
         <div>ID: {id}</div>
         <div>Description: {description}</div>

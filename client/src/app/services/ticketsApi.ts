@@ -33,6 +33,20 @@ export const ticketsApi = createApi({
       }),
       invalidatesTags: ['Tickets'],
     }),
+    completeTicket: build.mutation<any, string>({
+      query: (ticketId) => ({
+        url: `tickets/${ticketId}/complete`,
+        method: 'PUT',
+      }),
+      invalidatesTags: ['Tickets'],
+    }),
+    openTicket: build.mutation<any, string>({
+      query: (ticketId) => ({
+        url: `tickets/${ticketId}/complete`,
+        method: 'DELETE',
+      }),
+      invalidatesTags: ['Tickets'],
+    }),
   }),
 })
 
@@ -43,4 +57,6 @@ export const {
   useGetTicketByIdQuery,
   useAssignTicketMutation,
   useAddTicketMutation,
+  useCompleteTicketMutation,
+  useOpenTicketMutation,
 } = ticketsApi;

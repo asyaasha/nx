@@ -1,6 +1,5 @@
 import {useCallback, useState, useMemo} from 'react';
 
-import { Ticket } from '@acme/shared-models';
 import styles from './tickets.module.css';
 
 import TicketsList from '../tickets-list/tickets-list';
@@ -10,9 +9,10 @@ import { useGetTicketsQuery } from '../services/ticketsApi';
 import {matchesStatus} from '../utils';
 import {STATUS_FILTER_OPTIONS} from '../constants';
 
+import type { User } from '@acme/shared-models';
 import type { SelectProps } from '../select/select';
 
-export function Tickets() {
+export function Tickets({users}: {users: User[]}) {
   const [selectedStatus, setOption] = useState("");
   const onItemChanged = useCallback((id:string) => setOption(id), [setOption]);
 
@@ -42,7 +42,7 @@ export function Tickets() {
         <AddTicket />
       </div>
       <Select {...selectProps} />
-      <TicketsList tickets={filteredTickets} />
+      <TicketsList users={users} tickets={filteredTickets} />
     </div>
   );
 }
