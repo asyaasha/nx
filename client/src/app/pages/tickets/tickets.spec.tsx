@@ -3,12 +3,12 @@ import {Provider} from 'react-redux';
 import { rest } from 'msw'
 import { setupServer } from 'msw/node'
 
-import {ticketsApi} from '../services/ticketsApi';
-import {usersApi} from '../services/usersApi';
-import {setupApiStore} from '../test-utils';
+import {ticketsApi} from '../../services/ticketsApi';
+import {usersApi} from '../../services/usersApi';
+import {setupApiStore} from '../../test-utils';
 
 import Tickets from './tickets';
-import { ticketsMock } from '../__mock__';
+import { ticketsMock } from '../../__mock__';
 
 
 const mockedUsedNavigate = jest.fn();

@@ -1,4 +1,4 @@
-import type { Option } from './select/select';
+import type { Option } from './components/select/select';
 
 export const STATUS_FILTER_OPTIONS: Option[] = [
   {id: '', name: 'All' },

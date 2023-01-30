@@ -3,11 +3,11 @@ import {Provider} from 'react-redux';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 
-import {ticketsApi} from '../services/ticketsApi';
-import {usersApi} from '../services/usersApi';
-import {setupApiStore} from '../test-utils';
+import {ticketsApi} from '../../services/ticketsApi';
+import {usersApi} from '../../services/usersApi';
+import {setupApiStore} from '../../test-utils';
 import TicketDetails from './ticket-details';
-import { usersMock, ticketsMock } from '../__mock__';
+import { usersMock, ticketsMock } from '../../__mock__';
 
 jest.mock('react-router-dom', () => ({
    ...jest.requireActual('react-router-dom'),

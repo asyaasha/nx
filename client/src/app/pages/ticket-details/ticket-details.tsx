@@ -2,16 +2,16 @@ import {useCallback, useState, useEffect} from 'react';
 import {useParams} from "react-router-dom";
 
 import styles from './ticket-details.module.css';
-import Select from '../select/select';
+import Select from '../../components/select/select';
 import {
   useGetTicketByIdQuery,
   useAssignTicketMutation,
   useCompleteTicketMutation,
   useOpenTicketMutation,
-} from '../services/ticketsApi';
+} from '../../services/ticketsApi';
 
 import type {User} from '@acme/shared-models';
-import type { Option, SelectProps } from '../select/select';
+import type { Option, SelectProps } from '../../components/select/select';
 
 /* eslint-disable-next-line */
 export interface TicketDetailsProps {

@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 
 import styles from './add-ticket.module.css';
-import { useAddTicketMutation } from '../services/ticketsApi';
+import { useAddTicketMutation } from '../../../services/ticketsApi';
 
 function AddTicket () {
   const {

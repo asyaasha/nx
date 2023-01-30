@@ -2,15 +2,15 @@ import {useCallback, useState, useMemo} from 'react';
 
 import styles from './tickets.module.css';
 
-import TicketsList from '../tickets-list/tickets-list';
-import AddTicket from '../add-ticket/add-ticket';
-import Select from '../select/select';
-import { useGetTicketsQuery } from '../services/ticketsApi';
-import {matchesStatus} from '../utils';
-import {STATUS_FILTER_OPTIONS} from '../constants';
+import Select from '../../components/select/select';
+import TicketsList from './tickets-list/tickets-list';
+import AddTicket from './add-ticket/add-ticket';
+import { useGetTicketsQuery } from '../../services/ticketsApi';
+import {matchesStatus} from '../../utils';
+import {STATUS_FILTER_OPTIONS} from '../../constants';
 
 import type { User } from '@acme/shared-models';
-import type { SelectProps } from '../select/select';
+import type { SelectProps } from '../../components/select/select';
 
 export function Tickets({users}: {users: User[]}) {
   const [selectedStatus, setOption] = useState("");

@@ -1,9 +1,9 @@
 import {render, screen,fireEvent} from '@testing-library/react';
 import {Provider} from 'react-redux';
 
-import {ticketsApi} from '../services/ticketsApi';
-import {usersApi} from '../services/usersApi';
-import {setupApiStore} from '../test-utils';
+import {ticketsApi} from '../../../services/ticketsApi';
+import {usersApi} from '../../../services/usersApi';
+import {setupApiStore} from '../../../test-utils';
 import AddTicket from './add-ticket';
 
 const storeRef = setupApiStore({...usersApi, ...ticketsApi}, { });
