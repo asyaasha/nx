@@ -10,10 +10,10 @@ import type { Option, SelectProps } from '../select/select';
 
 /* eslint-disable-next-line */
 export interface TicketDetailsProps {
-  users?: User[];
+  users: User[];
 }
 
-export function TicketDetails({users}: TicketDetailsProps) {
+export function TicketDetails({users = []}: TicketDetailsProps) {
   const { id: paramId } = useParams<{id: string}>();
   const [selectedUser, setOption] = useState("");
   const onItemChanged = useCallback((id:string) => setOption(id), [setOption]);

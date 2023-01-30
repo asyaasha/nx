@@ -1,14 +1,14 @@
-import { StrictMode } from 'react';
+import {StrictMode} from 'react';
 import * as ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 
 import App from './app/app';
 
-import { configureStore } from '@reduxjs/toolkit';
-import { Provider } from 'react-redux';
+import {configureStore} from '@reduxjs/toolkit';
+import {Provider} from 'react-redux';
 
-import { ticketsApi } from './app/services/ticketsApi';
-import { usersApi } from './app/services/usersApi';
+import {ticketsApi} from './app/services/ticketsApi';
+import {usersApi} from './app/services/usersApi';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement

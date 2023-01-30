@@ -7,7 +7,7 @@ import TicketDetails from './ticket-details/ticket-details';
 import {useGetUsersQuery} from './services/usersApi';
 
 const App = () => {
-  const { data: users } = useGetUsersQuery();
+  const { data: users = [] } = useGetUsersQuery();
 
   return (
     <div className={styles['app']}>
